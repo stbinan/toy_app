@@ -1,8 +1,13 @@
 <% provide(:title, "Home") %>
+  <div class="center jumbotron">
     <h1>My Toy App by Rails <3</h1>
-    <p>
+
+    <h2>
       My web domain is
       <a href="http://binchan.me/">BinChan.me</a>.
-    </p>
-
+    </h2>
+    <%= link_to "Sign up now!", signup_path, class: "btn btn-lg btn-primary" %>
+  </div>
+  <%= link_to image_tag("my_access.png", alt: "My twitter account"),
+        'http://twitter.com/stbinan/' %>
 
