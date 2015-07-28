@@ -4,6 +4,6 @@ class Micropost < ActiveRecord::Base
   validates :user_id, presence: true
   validates :content, presence: true, length: { maximum: 140 }
 
-  has_attached_file :picture, :styles => {:large => "600x600>"}
+  has_attached_file :picture, :styles => {:original => "600x600>"}
   validates_attachment_content_type :picture, :content_type => /\Aimage\/.*\Z/
 end
