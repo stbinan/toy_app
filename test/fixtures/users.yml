@@ -18,6 +18,16 @@ testuser2:
   email: testuser2@test2.com
   password_digest: <%= User.digest('password') %>
 
+lana:
+  name: Lana Lala
+  email: lana@binchan.me
+  password_digest: <%= User.digest('password') %>
+
+mallory:
+  name: Mallory Glory
+  email: mallory@binchan.me
+  password_digest: <%= User.digest('password') %>
+
 <% 30.times do |n| %>
 user_<%= n %>:
   name: <%= "User #{n}" %>
