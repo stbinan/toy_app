@@ -18,6 +18,7 @@ class UsersController < ApplicationController
 
   def new
     @user = User.new
+    #flash[:warning] = "Currently not registerable."
   end
 
   def create
