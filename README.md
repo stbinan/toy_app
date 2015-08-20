@@ -2,7 +2,7 @@
 
 ## README
 
-This app is almost developed according to Michael Hartl's Rails Tutorial 3rd Edition, it can be read free at [https://www.railstutorial.org].
+This app is almost developed according to Michael Hartl's Rails Tutorial 3rd Edition, it can be read free at https://www.railstutorial.org.
 
 ### Ruby version
 2.2.2
