@@ -26,5 +26,5 @@ This app is almost developed according to Michael Hartl's Rails Tutorial 3rd Edi
 
 4. Finally, set up the server or just run it with `$ rails server`.
 
-Other questions just check the websites above or leave me a message on twitter @stbinan.
+For other problems please check the websites above or leave me a message on twitter @stbinan.
 
