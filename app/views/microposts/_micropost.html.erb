@@ -2,7 +2,7 @@
   <%= link_to avatar_for(micropost.user, size: :small), micropost.user %>
   <span class="user"><%= link_to micropost.user.name, micropost.user %></span>
   <span class="content">
-    <%= micropost.content %>
+    <%= markdown micropost.content %>
     <%= image_tag micropost.picture.url(:original) if micropost.picture? %>
   </span>
   <span class="timestamp">

@@ -14,6 +14,8 @@ gem 'turbolinks',              '2.3.0'
 gem 'jbuilder',                '2.2.3'
 gem 'sdoc',                    '0.4.0', group: :doc
 gem 'paperclip',               '~> 4.2'
+gem 'redcarpet',               '~> 3.3.2'
+
 
 group :development, :test do
   gem 'sqlite3',     '1.3.9'
@@ -28,6 +30,6 @@ group :test do
   gem 'guard-minitest',     '2.3.1'
 end
 
-group :production do
-  gem 'pg',             '0.17.1'
-end
+#group :production do
+#  gem 'pg',             '0.17.1'
+#end
