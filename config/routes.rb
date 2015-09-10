@@ -14,6 +14,7 @@ Rails.application.routes.draw do
   post      'login'             => 'sessions#create'
   delete    'logout'            => 'sessions#destroy'
 
+  get       'feed'              => 'microposts#feed'
   resources :users do
     member do
       get :following, :followers

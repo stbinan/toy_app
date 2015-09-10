@@ -20,6 +20,16 @@ class MicropostsController < ApplicationController
     #redirect_to root_url
   end
 
+  def feed
+    @posts = User.find(1).microposts(:select => "created_at, content",
+                                          :order => "posted_at DESC",
+                                          :limit => 20)
+    respond_to do |format|
+      format.html
+      format.rss {render :layout => false}
+    end
+  end
+
   private
 
     def micropost_params
