@@ -299,7 +299,7 @@ body.conway{
   color: #ccc;
   canvas {
     border: 1px solid rgba(242, 198, 65, 0.1);
-    margin: auto;
+    margin: -20px auto 30px auto;
     display: block;
   }
   .navbar-default {
@@ -333,13 +333,13 @@ body.conway{
     background-color: #303030;
   }
   footer a:hover {
-    color: #bbb;
+    color: #999;
   }
   footer {
-    color: #ccc;
+    color: #5b5b5b;
   }
   footer a{
-    color: #aaa;
+    color: #777;
   }
 }
 
