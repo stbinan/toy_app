@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  get 'game_of_life/conway'
+
   #get 'sessions/new'
   #get 'users/new'
 
@@ -15,6 +17,9 @@ Rails.application.routes.draw do
   delete    'logout'            => 'sessions#destroy'
 
   get       'feed'              => 'microposts#feed'
+
+  get       'conway_s_game_of_life' => 'game_of_life#conway'
+
   resources :users do
     member do
       get :following, :followers

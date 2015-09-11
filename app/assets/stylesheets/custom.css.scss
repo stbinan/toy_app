@@ -291,3 +291,54 @@ span.picture {
     border: 0;
   }
 }
+
+/* game of life */
+
+body.conway{
+  background-color: rgb(38, 38, 38);
+  color: #ccc;
+  canvas {
+    border: 1px solid rgba(242, 198, 65, 0.1);
+    margin: auto;
+    display: block;
+  }
+  .navbar-default {
+    background-color: #202020;
+    border-color: #333;
+  }
+  #logo {
+    color: #bbb;
+  }
+  footer {
+    border-top: 1px solid #333;
+  }
+  .navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus {
+    color: #ccc;
+  }
+  .navbar-default .navbar-nav > .open > a, .navbar-default .navbar-nav > .open > a:hover, .navbar-default .navbar-nav > .open > a:focus {
+    background-color: #202020;
+    color: #ccc;
+  }
+  .dropdown-menu {
+    background-color: #202020;
+  }
+  .dropdown-menu .divider {
+    background-color: #333;
+  }
+  .dropdown-menu > li > a {
+    color: #bbb;
+  }
+  .dropdown-menu > li > a:hover, .dropdown-menu > li > a:focus {
+    color: #ccc;
+    background-color: #303030;
+  }
+  footer a:hover {
+    color: #bbb;
+  }
+  footer {
+    color: #ccc;
+  }
+  footer a{
+    color: #aaa;
+  }
+}
