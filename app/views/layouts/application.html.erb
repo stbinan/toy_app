@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+  <%= auto_discovery_link_tag(:rss, "http://localhost:3000/feed.rss") %>
   <head>
     <title><%= yield(:title) %> - My Toy App</title>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
