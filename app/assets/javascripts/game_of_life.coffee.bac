@@ -29,25 +29,28 @@ class GameOfLife
     @drawingContext = @canvas.getContext '2d'
 
   seed: ->
-    @currentCellGeneration = math.matrix( \
-            math.zeros([@numberOfRows, @numberOfColumns]))
+    @currentCellGeneration = []
 
     for row in [0...@numberOfRows]
-      for column in [0...@numberOfColumns]
-        seedCell = @createSeedCell()
-        @currentCellGeneration._data[row][column] = seedCell
+      @currentCellGeneration[row] = []
 
-  createSeedCell: ->
+      for column in [0...@numberOfColumns]
+        seedCell = @createSeedCell row, column
+        @currentCellGeneration[row][column] = seedCell
+
+  createSeedCell: (row, column) ->
     isAlive: Math.random() < @seedProbability
+    row: row
+    column: column
 
   drawGrid: ->
     for row in [0...@numberOfRows]
       for column in [0...@numberOfColumns]
-        @drawCell @currentCellGeneration._data[row][column], row, column
+        @drawCell @currentCellGeneration[row][column]
 
-  drawCell: (cell, row, column) ->
-    x = column * @cellSize
-    y = row * @cellSize
+  drawCell: (cell) ->
+    x = cell.column * @cellSize
+    y = cell.row * @cellSize
 
     if cell.isAlive
       fillStyle = 'rgb(242, 198, 65)'
@@ -67,40 +70,42 @@ class GameOfLife
     setTimeout @tick, @tickLength
 
   evolveCellGeneration: ->
-    newCellGeneration = math.matrix( \
-            math.zeros([@numberOfRows, @numberOfColumns]))
+    newCellGeneration = []
 
     for row in [0...@numberOfRows]
+      newCellGeneration[row] = []
+
       for column in [0...@numberOfColumns]
-        evolvedCell = @evolveCell \
-                @currentCellGeneration._data[row][column], row, column
-        newCellGeneration._data[row][column] = evolvedCell
+        evolvedCell = @evolveCell @currentCellGeneration[row][column]
+        newCellGeneration[row][column] = evolvedCell
 
     @currentCellGeneration = newCellGeneration
 
-  evolveCell: (cell, row, column) ->
+  evolveCell: (cell) ->
     evolvedCell =
+      row: cell.row
+      column: cell.column
       isAlive: cell.isAlive
 
-    numberOfAliveNeighbors = @countAliveNeighbors cell, row, column
+    numberOfAliveNeighbors = @countAliveNeighbors cell
 
     if cell.isAlive or numberOfAliveNeighbors is 3
       evolvedCell.isAlive = 1 < numberOfAliveNeighbors < 4
 
     evolvedCell
 
-  countAliveNeighbors: (cell, row, column) ->
-    lowerRowBound = Math.max row - 1, 0
-    upperRowBound = Math.min row + 1, @numberOfRows - 1
-    lowerColumnBound = Math.max column - 1, 0
-    upperColumnBound = Math.min column + 1, @numberOfColumns - 1
+  countAliveNeighbors: (cell) ->
+    lowerRowBound = Math.max cell.row - 1, 0
+    upperRowBound = Math.min cell.row + 1, @numberOfRows - 1
+    lowerColumnBound = Math.max cell.column - 1, 0
+    upperColumnBound = Math.min cell.column + 1, @numberOfColumns - 1
     numberOfAliveNeighbors = 0
 
-    for row2 in [lowerRowBound..upperRowBound]
-      for column2 in [lowerColumnBound..upperColumnBound]
-        continue if row2 is row and column2 is column
+    for row in [lowerRowBound..upperRowBound]
+      for column in [lowerColumnBound..upperColumnBound]
+        continue if row is cell.row and column is cell.column
 
-        if @currentCellGeneration._data[row2][column2].isAlive
+        if @currentCellGeneration[row][column].isAlive
           numberOfAliveNeighbors++
 
     numberOfAliveNeighbors
