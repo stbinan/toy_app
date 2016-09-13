@@ -87,6 +87,10 @@ header {
       color: #222;
       text-decoration: none;
     }
+    &:focus {
+      color: #222;
+      text-decoration: none;
+    }
   }
   ul {
     float: right;
@@ -96,6 +100,15 @@ header {
       margin-left: 15px;
       margin-top: 15px;
     }
+  }
+}
+
+.dropdown-menu {
+  min-width: 0px;
+  left: -18px;
+  li {
+    margin-left: 0px;
+    margin-top: 5px;
   }
 }
 
