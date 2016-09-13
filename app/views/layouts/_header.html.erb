@@ -2,7 +2,7 @@
   <div class="container">
     <%= link_to "MY TOY APP", root_path, id: "logo" %>
     <nav>
-      <ul class="nav navbar-nav navbar-right">
+      <ul>
         <li><%= link_to "Home",   root_path %></li>
         <% if not logged_in? %>
           <li><%= link_to "My Posts", root_path + 'users/1' %></li>

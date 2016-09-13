@@ -77,6 +77,28 @@ p {
   }
 }
 
+header {
+  border-top: 1px solid #eaeaea;
+  color: #777;
+  a {
+    color: #777;
+    padding: 10px 5px;
+    &:hover {
+      color: #222;
+      text-decoration: none;
+    }
+  }
+  ul {
+    float: right;
+    list-style: none;
+    li {
+      float: left;
+      margin-left: 15px;
+      margin-top: 15px;
+    }
+  }
+}
+
 /* footer */
 
 footer {
