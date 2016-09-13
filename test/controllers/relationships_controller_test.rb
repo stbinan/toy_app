@@ -1,5 +1,6 @@
 require 'test_helper'
 
+=begin
 class RelationshipsControllerTest < ActionController::TestCase
 
   test "create should require logged-in user" do
@@ -16,3 +17,22 @@ class RelationshipsControllerTest < ActionController::TestCase
     assert_redirected_to login_url
   end
 end
+=end
+
+class RelationshipsControllerTest < ActionDispatch::IntegrationTest
+
+  test "create should require logged-in user" do
+    assert_no_difference 'Relationship.count' do
+      post relationships_path
+    end
+    assert_redirected_to login_url
+  end
+
+  test "destroy should require logged-in user" do
+    assert_no_difference 'Relationship.count' do
+      delete relationship_path(relationships(:one))
+    end
+    assert_redirected_to login_url
+  end
+end
+
